@@ -21,16 +21,16 @@
       <li><a href="/login">About</a></li>
       <li><a href="/doctors">Find Doctors</a></li>
       <li><a href="/blog">Blog</a></li>
-      <li><a href="/portal">Patient Portal</a></li>
+      <li><a href="/" on:click={openLoginForm}>Patient Portal</a></li>
     </ul>
 
     <!-- Search -->
-    <div class="flex flex-col md:flex-row items-center gap-[7px]">
+    <div class="flex flex-col md:flex-row items-center gap-[7px] relative z-[30]">
       <div class="flex items-center justify-between space-x-2 bg-white px-3 py-1 rounded-full w-[356px]">
       <input
         type="text"
         placeholder="Search here"
-        class="outline-none border-none focus:outline-none focus:ring-0 shadow-none text-sm text-[#21416942] font-bold"
+        class="outline-none border-none focus:outline-none focus:ring-0 shadow-none text-sm text-black placeholder:text-[#21416942] font-bold w-full"
       />
       <button class="text-gray-500 w-[25px] h-[25px]">
         <img src="search.svg" alt="search">
@@ -49,7 +49,7 @@
   <div class="container max-w-full px-[121px] flex flex-col justify-between md:flex-row md:items-center relative pb-40">
     
     <!-- LEFT TEXT -->
-    <div class="flex-1 space-y-[26px]">
+    <div class="relative flex-1 items-end justify-end space-y-[26px] md:top-[114px]">
       <h1 class="text-4xl md:text-5xl font-semibold leading-tight">
         Your Partner in Health and Wellness
       </h1>
@@ -59,17 +59,18 @@
         healthcare services to help you live healthier and happier.
       </p>
 
-      <button class="px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">
-        Get Started
-      </button>
+      <div class="flex gap-[10px] items-center">
+        <img src="play-media.png" alt="play-media" class="h-[40px] w-[40px]">
+        <p class="text-[#214169] font-normal text-[20px]">See how we work</p>
+      </div>
     </div>
 
     <!-- RIGHT IMAGE -->
-    <div class="relative flex-1 flex justify-center items-center md:items-start">
+    <div class="relative flex-1 flex justify-center items-center md:items-end">
       <img 
-        src="doctor-cover.png" 
+        src="doctor-cover.png"
         alt="doctor"
-        class="absolute max-w-sm object-contain object-top h-auto drop-shadow-2xl md:max-w-md md:-top-45"
+        class="absolute z-[0] pointer-events-none max-w-sm object-contain object-top drop-shadow-2xl md:max-w-md md:-top-40"
         />
     </div>
 
@@ -107,14 +108,12 @@
       </div>
     </div>
     <div class="p-6 flex items-center justify-center">
-      <button class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700">
+      <button class="bg-[#214169] text-white px-6 py-2 rounded-full hover:bg-blue-700">
         Book Now
       </button>
     </div>
   </div>
 </div>
-  
-  
 
   <LoginPanel open={isLoginFormOpen} onClose={openLoginForm}/>
 </section>
@@ -124,7 +123,7 @@
   <div class="container mx-auto px-8">
     <h2 class="text-3xl font-bold text-[#1F3763] mb-6">Our Services</h2>
     <p class="text-gray-600">
-      Your next content here...
+      next content here...
     </p>
   </div>
 </section>

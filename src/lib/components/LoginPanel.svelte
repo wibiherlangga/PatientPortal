@@ -96,7 +96,7 @@
           type="email"
           placeholder="Surel Akun"
           bind:value={email}
-          class="w-full bg-transparent border-none outline-none focus:outline-none focus:ring-0 shadow-none text-sm"
+          class="w-full bg-transparent border-none outline-none focus:outline-none focus:ring-0 shadow-none text-sm font-normal font-poppins placeholder:text-slate-300"
           on:input={validateEmail}
           on:focus={() => (isEmailFocused = true)}
           on:blur={() => (isEmailFocused = false)}
@@ -115,7 +115,7 @@
           type={isShowPassword ? 'text' : 'password'}
           placeholder="Kata Sandi"
           bind:value={password}
-          class="w-full bg-transparent border-none outline-none focus:outline-none focus:ring-0 shadow-none text-sm"
+          class="w-full bg-transparent border-none outline-none focus:outline-none focus:ring-0 shadow-none text-sm font-poppins text-slate-800 font-medium placeholder:text-slate-300 placeholder:font-normal"
           on:input={validatePassword}
           on:focus={() => (isPasswordFocused = true)}
           on:blur={() => (isPasswordFocused = false)}
@@ -145,24 +145,24 @@
 
       <!-- Link tambahan -->
       <div class="w-[80%] flex justify-between items-center mt-3 text-sm font-poppins">
-        <p class="text-slate-500 text-[10px] font-poppins">
+        <p class="font-poppins font-medium text-[10px] text-slate-500">
           <a href="/register" class="text-sky-600 hover:underline font-bold text-[10px] font-poppins">
             Daftar,
           </a>
-          Jika tidak memiliki akun.
+          Jika tidak memiliki akun
         </p>
         <a href="/forgot-password" class="text-rose-500 font-bold font-poppins text-[10px] hover:underline">Lupa Kata Sandi?</a>
       </div>
 
       <!-- Terms & Conditions -->
        <div class="items-center mt-[24px]">        
-          <a href="/terms" class="text-sky-500 text-[12px] font-poppins hover:underline">Syarat & Ketentuan</a>
+          <a href="/terms" class="text-sky-500 text-[12px] font-poppins font-medium hover:underline">Syarat & Ketentuan</a>
         <span class="text-slate-500 text-[16px] font-poppins">|</span>
-        <a href="/privacy" class="text-sky-500 text-[12px] font-poppins hover:underline">Kebijakan Privasi</a>
+        <a href="/privacy" class="text-sky-500 text-[12px] font-poppins font-medium hover:underline">Kebijakan Privasi</a>
        </div>
 
        <!-- COPYRIGHTS -->
-        <div class="text-center mt-[48px] w-full text-sky-700 font-poppins text-[12px]">
+        <div class="text-center mt-[48px] w-full text-sky-700 font-poppins font-normal text-[12px]">
           <p class="">COPYRIGHT © {new Date().getFullYear()}</p>
         </div>
   </div>
