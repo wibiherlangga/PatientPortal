@@ -13,15 +13,15 @@
   <nav class="flex flex-col md:flex-row items-center justify-between px-[121px] pt-[52px]">
     <div class="flex flex-row items-center gap-[7px]">
       <img src="heart-rate-logo.svg" alt="heart-rate">
-      <p class="text-2xl text-[#214169] font-agbalumo">Sampel WEB RS</p>
+      <p class="text-2xl text-[#214169] font-agbalumo font-normal">Sampel WEB RS</p>
     </div>
 
     <ul class="flex flex-col md:flex-row space-x-8 font-normal text-black">
-      <li><a href="/" class="text-blue-600">Home</a></li>
-      <li><a href="/login">About</a></li>
-      <li><a href="/doctors">Find Doctors</a></li>
-      <li><a href="/blog">Blog</a></li>
-      <li><a href="/" on:click={openLoginForm}>Patient Portal</a></li>
+      <li><a href="/" class="text-blue-600 font-alatsi font-normal text-[15px]">Home</a></li>
+      <li><a href="/login" class="font-alatsi font-normal text-[15px]">About</a></li>
+      <li><a href="/doctors" class="font-alatsi font-normal text-[15px]">Find Doctors</a></li>
+      <li><a href="/blog" class="font-alatsi font-normal text-[15px]">Blog</a></li>
+      <li><a href="/" class="font-alatsi font-normal text-[15px]" on:click={openLoginForm}>Patient Portal</a></li>
     </ul>
 
     <!-- Search -->
@@ -50,11 +50,11 @@
     
     <!-- LEFT TEXT -->
     <div class="relative flex-1 items-end justify-end space-y-[26px] md:top-[114px]">
-      <h1 class="text-4xl md:text-5xl font-semibold leading-tight">
+      <h1 class="text-4xl md:text-5xl font-normal font-amaranth text-[80px] text-[#214169] leading-tight">
         Your Partner in Health and Wellness
       </h1>
 
-      <p class="text-gray-600 max-w-md">
+      <p class="font-arapey font-normal text-[20px] text-black max-w-md">
         We are committed to providing you with the best medical and 
         healthcare services to help you live healthier and happier.
       </p>
