@@ -1,5 +1,5 @@
 <script>
-  // Data dummy (nanti tinggal fetch dari BE)
+  import { getColorTimeline } from '$lib/timeline/utils/timelineColor.js';
   export let patientHistory = [
     {
       year: 2024,
@@ -48,18 +48,6 @@
     }
   ];
 
-  const getColor = (type) => {
-    switch (type) {
-      case "Rawat Jalan": return "bg-yellow-400";
-      case "Rawat Inap": return "bg-blue-400";
-      case "Gawat Darurat": return "bg-pink-400";
-      case "Farmasi": return "bg-orange-400";
-      case "Lab": return "bg-green-400";
-      case "Radiologi": return "bg-purple-400";
-      default: return "bg-gray-300";
-    }
-  };
-
   const legends = [
     "Rawat Jalan", "Rawat Inap", "Gawat Darurat", "Farmasi", "Lab", "Radiologi"
   ];
@@ -102,7 +90,7 @@
   <div class="flex flex-wrap gap-6 text-sm font-medium text-gray-600">
     {#each legends as legend}
       <div class="flex items-center gap-2">
-        <span class={`w-3 h-3 rounded-full ${getColor(legend)}`}></span>
+        <span class={`w-3 h-3 rounded-full ${getColorTimeline(legend)}`}></span>
         <span>{legend}</span>
       </div>
     {/each}
@@ -110,28 +98,22 @@
 
   <!-- Timeline Section -->
 <div class="flex bg-gray-500 rounded-2xl shadow-inner overflow-hidden flex-1">
-  <!-- Area scroll timeline -->
 <div class="flex-1 overflow-x-auto overflow-y-hidden p-6 rounded-l-2xl bg-gray-50 scroll-smooth"
      style="scroll-snap-type: x mandatory;">
   <div class="relative flex items-start gap-12 min-w-[1200px]">
       {#each patientHistory as yearData}
         <div class="flex flex-col items-start flex-shrink-0 scroll-snap-align-start">
-          <!-- Tahun di atas bulan -->
           <div class="text-base font-semibold text-gray-700 mb-2 ml-[14px] whitespace-nowrap">
             {yearData.year}
           </div>
 
-          <!-- Barisan bulan -->
           <div class="relative flex items-start gap-8 pb-8">
-            <!-- Garis timeline di bawah dot -->
             <div class="absolute bottom-0 left-0 right-0 h-[2px] bg-gray-200"></div>
 
             {#each yearData.records as rec}
               <div class="flex flex-col items-center min-w-[70px] relative">
-                <!-- Nama bulan -->
                 <span class="text-xs text-gray-600 whitespace-nowrap mb-2">{rec.month}</span>
 
-                <!-- Kumpulan dot warna-warni -->
                 <div class="flex flex-col items-center gap-[6px]">
                   {#each ["Rawat Jalan", "Rawat Inap", "Gawat Darurat", "Farmasi", "Lab", "Radiologi"] as type}
                     <div class={`w-3 h-3 rounded-full ${getColor(type)} hover:scale-110 transition-transform`}></div>

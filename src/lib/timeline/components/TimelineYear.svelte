@@ -1,4 +1,5 @@
 <script>
+  import { getColorTimeline } from '$lib/timeline/utils/timelineColor.js';
   const years = [
     {
       year: 2024,
@@ -15,12 +16,12 @@
   ];
 
   const categories = [
-    { id: "rawat-jalan",  dotClass: "dot--rawat-jalan" },
-    { id: "rawat-inap",   dotClass: "dot--rawat-inap" },
-    { id: "gadar",        dotClass: "dot--gadar" },
-    { id: "farmasi",      dotClass: "dot--farmasi" },
-    { id: "lab",          dotClass: "dot--lab" },
-    { id: "radiologi",    dotClass: "dot--radiologi" }
+    { id: "rawat-jalan",  label: "Rawat Jalan" },
+    { id: "rawat-inap",   label: "Rawat Inap" },
+    { id: "gadar",        label: "Gawat Darurat" },
+    { id: "farmasi",      label: "Farmasi" },
+    { id: "lab",          label: "Lab" },
+    { id: "radiologi",    label: "Radiologi" }
   ];
 </script>
 
@@ -36,7 +37,7 @@
 
             <div class="dots-stack">
               {#each categories as cat}
-                <span class="dot {cat.dotClass}"></span>
+                <span class={`dot ${getColorTimeline(cat.label)}`}></span>
               {/each}
             </div>
           </div>

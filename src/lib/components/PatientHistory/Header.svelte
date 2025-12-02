@@ -3,7 +3,7 @@
 </script>
 
 <header class="w-full bg-white shadow-sm px-6 py-3 flex justify-between items-center">
-  <!-- Logo / Judul -->
+  <!-- Logo / Title -->
   <div class="flex items-center gap-2">
     <img src="/logo.png" alt="Logo" class="w-8 h-8" />
     <h1 class="text-xl font-bold text-gray-700">Svelte Dashboard</h1>

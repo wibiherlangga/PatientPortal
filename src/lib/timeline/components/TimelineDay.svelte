@@ -1,7 +1,6 @@
 <script>
   import '$lib/timeline/timeline.css';
 
-  // Dummy range hari: 1–7 Jan 2024
   const days = [
     { index: 1, labelTop: '1 Jan 2024', labelBottom: 'Senin' },
     { index: 2, labelTop: '2 Jan',       labelBottom: 'Selasa' },
@@ -12,23 +11,15 @@
     { index: 7, labelTop: '7 Jan',       labelBottom: 'Minggu' }
   ];
 
-  /**
-   * Grid konsep:
-   * - 7 kolom (1–7 Jan) → grid-column: start / end+1
-   * - row:
-   *   1 → bar merah "Sesak Napas Berat"
-   *   2 → bar biru "Gagal Jantung Akut"
-   *   3 → bar kuning "Kontrol P..."
-   */
   const events = [
     {
       id: 'sesak-napas',
       title: 'Sesak Napas Berat',
-      type: 'gadar',          // nanti bisa dipakai mapping warna
+      type: 'gadar',
       startDay: 1,
-      endDay: 1,
+      endDay: 2,
       row: 1,
-      avatars: ['VA', 'JA']   // inisial dummy di sisi kiri bar
+      avatars: ['VA']
     },
     {
       id: 'gagal-jantung',
@@ -37,7 +28,7 @@
       startDay: 1,
       endDay: 5,
       row: 2,
-      avatars: ['JA']         // bubble biru di tengah/kanan bar
+      avatars: ['JA']
     },
     {
       id: 'kontrol',
@@ -46,14 +37,13 @@
       startDay: 6,
       endDay: 6,
       row: 3,
-      avatars: ['DR']         // bubble di bagian kanan bar
+      avatars: ['DR']
     }
   ];
 </script>
 
 <div class="year-view day-view">
-  <div class="day-view__inner">
-    <!-- HEADER KOLOM HARI -->
+  <div class="day-view__inner" style={`--day-count: ${days.length};`}>
     <div class="day-view__header-row">
       {#each days as d}
         <div class="day-view__day-header">
@@ -63,9 +53,9 @@
       {/each}
     </div>
 
-    <!-- GRID UTAMA (GARIS VERTIKAL + EVENT BAR) -->
+    <!-- GRID: garis + event bar -->
     <div class="day-view__grid">
-      <!-- Garis vertikal per hari -->
+      <!-- Garis vertikal -->
       {#each days as d}
         <div
           class="day-view__day-line"
@@ -77,7 +67,7 @@
       {#each events as ev}
         <div
           class={`day-event day-event--${ev.type}`}
-          style={`grid-column: ${ev.startDay} / ${ev.endDay + 1}; grid-row: ${ev.row};`}
+          style={`grid-column: ${ev.startDay} / ${ev.endDay + 1}; grid-row: ${ev.row + 1};`}
         >
           <div class="day-event__title">{ev.title}</div>
 

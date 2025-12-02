@@ -1,32 +1,37 @@
 @import "tailwindcss";
 
-/* header */
+/* =========================
+   HEADER
+   ========================= */
 .timeline-base__header {
-  display: flex;
+display: flex; 
+flex-direction: row;  
   justify-content: flex-start;
-  gap: 1.5rem; 
+  gap: 2rem; 
   align-items: center;
   column-gap: 0.75rem;
   margin-bottom: 0.75rem; 
 }
 
 .timeline-base__title {
+  font-size: 1.15rem;
   font-weight: 600;
-  font-size: 1rem;
+  color: #111827;
+  white-space: nowrap; 
 }
 
 .timeline-base__legend {
   display: flex;
-  flex-wrap: wrap;
-  column-gap: 1.5rem;
-  gap: 1rem;  
-  font-size: 0.75rem;
+  align-items: center;
+  gap: 1.75rem;
+  flex-wrap: nowrap; 
 }
 
 .legend-item {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.35rem;
+  white-space: nowrap;  
 }
 
 .legend-dot {
@@ -49,13 +54,11 @@
   overflow: hidden; 
 }
 
-/* area konten kiri */
 .timeline-base__content {
   flex: 1 1 auto;
   min-width: 0;  
 }
 
-/* tombol kanan */
 .timeline-base__zoom {
   flex: 0 0 auto;
   display: flex;
@@ -80,7 +83,10 @@ border: none;
   color: white;
 }
 
-/* SCROLLBAR CUSTOM*/
+/* =========================
+   SCROLLBAR CUSTOM
+   ========================= */
+
 .timeline-base__content::-webkit-scrollbar {
   height: 12px;
 }
@@ -168,13 +174,6 @@ border: none;
   opacity: 0.95;
 }
 
-.dot--rawat-jalan  { background: #f6c94c; }  /* kuning */
-.dot--rawat-inap   { background: #6fa6ff; }  /* biru */
-.dot--gadar        { background: #f78f9b; }  /* merah muda */
-.dot--farmasi      { background: #f69d5a; }  /* oranye */
-.dot--lab          { background: #42c89b; }  /* hijau */
-.dot--radiologi    { background: #b896ff; }  /* ungu */
-
 .dot--muted {
   opacity: 0.25;
   transform: scale(0.7);
@@ -212,21 +211,25 @@ border: none;
    DAY VIEW (Hari)
    ========================= */
 
-.day-view {
+.year-view.day-view {
+  width: 100%;
+  min-width: 0;
+  display: block;
+  border-radius: 32px;
+  background: radial-gradient(circle at top left, #f9fafb 0, #e5edf7 40%, #dde4f0 100%);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
   padding: 1.25rem 2.5rem 1.5rem;
 }
 
-/* inner layout */
 .day-view__inner {
   width: 100%;
 }
 
-/* header baris hari */
 .day-view__header-row {
   display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-  column-gap: 2rem;
-  margin-bottom: 0.75rem;
+  grid-template-columns: repeat(var(--day-count), minmax(140px, 1fr));
+  column-gap: 2.5rem;
+  margin-bottom: 0.6rem;
 }
 
 .day-view__day-header {
@@ -244,28 +247,37 @@ border: none;
   color: #9ca3af;
 }
 
-/* grid utama: 7 kolom (hari), beberapa row untuk event */
 .day-view__grid {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-  grid-template-rows: auto 1fr; 
-  column-gap: 2rem;
-  padding-top: 0.5rem;
+  grid-template-columns: repeat(var(--day-count), minmax(140px, 1fr));
+  column-gap: 2.5rem;
+  row-gap: 0rem;
+  grid-auto-rows: minmax(34px, auto);
+  padding: 0.4rem 0 3rem;
 }
 
-/* garis vertikal */
 .day-view__day-line {
   grid-row: 1 / -1;
-  border-left: 1px solid rgba(148, 163, 184, 0.35);
+  position: relative;
 }
 
-/* bar event */
+.day-view__day-line::before {
+  content: '';
+  position: absolute;
+  top: -0.5rem;
+  bottom: -2.2rem; 
+  left: 50%;
+  transform: translateX(-0.5px);
+  width: 1px;
+  background: rgba(148, 163, 184, 0.35);
+}
+
 .day-event {
   position: relative;
   align-self: center;
   border-radius: 999px;
-  padding: 0.4rem 0.9rem;
+  padding: 0.35rem 0.9rem;
   font-size: 0.78rem;
   display: flex;
   align-items: center;
@@ -274,21 +286,21 @@ border: none;
   box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
   overflow: hidden;
   white-space: nowrap;
+  margin: 0.05rem 0;
 }
 
-/* warna kira-kira mengikuti kategori legend */
 .day-event--gadar {
-  background: #f97373; /* merah muda darurat */
+  background: #f97373;
   color: #fff;
 }
 
 .day-event--rawat-inap {
-  background: #60a5fa; /* biru */
+  background: #60a5fa;
   color: #fff;
 }
 
 .day-event--rawat-jalan {
-  background: #fde047; /* kuning */
+  background: #fde047;
   color: #111827;
 }
 
@@ -298,7 +310,6 @@ border: none;
   overflow: hidden;
 }
 
-/* avatar / badge kecil */
 .day-event__avatars {
   display: flex;
   align-items: center;
@@ -318,19 +329,21 @@ border: none;
   border: 2px solid #e5f2ff;
 }
 
+
+
+
 /* =========================
    HOUR VIEW (Jam)
    ========================= */
 
 .hour-view {
-  padding: 1.25rem 2.5rem 1.5rem; /* biar kapsulnya sama rasa dengan Day */
+  padding: 1.25rem 2.5rem 1.5rem;
 }
 
 .hour-view__inner {
   width: 100%;
 }
 
-/* header "Sen, 1 Jan 2024" */
 .hour-view__header {
   margin-bottom: 0.5rem;
 }
@@ -338,10 +351,9 @@ border: none;
 .hour-view__date {
   font-size: 0.8rem;
   font-weight: 500;
-  color: #6b7280; /* abu-abu seperti di desain */
+  color: #6b7280;
 }
 
-  /* grid utama: 18 kolom jam */
 .hour-view__grid {
   position: relative;
   display: grid;
@@ -361,7 +373,7 @@ border: none;
 .hour-view__hour-label {
   font-size: 0.75rem;
   font-weight: 500;
-  color: #111827; /* hitam seperti di desain */
+  color: #111827;
 }
 
 .hour-view__hour-line {
@@ -388,34 +400,33 @@ border: none;
   grid-row: calc(var(--row-index) + 1);
 }
 
-/* warna kira-kira mengikuti legend */
 .hour-event--rawat-jalan {
-  background: #fde047; /* kuning */
+  background: #fde047;
   color: #111827;
 }
 
 .hour-event--rawat-inap {
-  background: #60a5fa; /* biru */
+  background: #60a5fa;
   color: #fff;
 }
 
 .hour-event--gadar {
-  background: #f97373; /* merah muda */
+  background: #f97373;
   color: #fff;
 }
 
 .hour-event--farmasi {
-  background: #fb923c; /* oranye */
+  background: #fb923c;
   color: #111827;
 }
 
 .hour-event--lab {
-  background: #22c55e; /* hijau */
+  background: #22c55e;
   color: #fff;
 }
 
 .hour-event--radiologi {
-  background: #a855f7; /* ungu */
+  background: #a855f7;
   color: #fff;
 }
 
@@ -425,7 +436,6 @@ border: none;
   overflow: hidden;
 }
 
-/* avatar kecil di bar */
 .hour-event__avatars {
   display: flex;
   align-items: center;

@@ -6,7 +6,7 @@
   import LegendBar from './LegendBar.svelte';
 
   export let patientHistory;
-  let mode = 'Tahun'; // default view
+  let mode = 'Tahun';
 
   const modes = ['Tahun', 'Bulan', 'Hari', 'Jam'];
 </script>

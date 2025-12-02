@@ -3,6 +3,7 @@
   import TimelineMonth from './TimelineMonth.svelte';
   import TimelineDay from './TimelineDay.svelte';
   import TimelineHour from './TimelineHour.svelte';
+  import { getColorTimeline } from '../utils/timelineColor.js';
 
   const modes = [
     { id: 'year',  label: 'Tahun' },
@@ -25,27 +26,27 @@
 
     <div class="timeline-base__legend">
       <div class="legend-item">
-        <span class="legend-dot legend-dot--rawat-jalan"></span>
+        <span class={`legend-dot ${getColorTimeline('Rawat Jalan')}`}></span>
         <span>Rawat Jalan</span>
       </div>
       <div class="legend-item">
-        <span class="legend-dot legend-dot--rawat-inap"></span>
+        <span class={`legend-dot ${getColorTimeline('Rawat Inap')}`}></span>
         <span>Rawat Inap</span>
       </div>
       <div class="legend-item">
-        <span class="legend-dot legend-dot--gadar"></span>
+        <span class={`legend-dot ${getColorTimeline('Gawat Darurat')}`}></span>
         <span>Gawat Darurat</span>
       </div>
       <div class="legend-item">
-        <span class="legend-dot legend-dot--farmasi"></span>
+        <span class={`legend-dot ${getColorTimeline('Farmasi')}`}></span>
         <span>Farmasi</span>
       </div>
       <div class="legend-item">
-        <span class="legend-dot legend-dot--lab"></span>
+        <span class={`legend-dot ${getColorTimeline('Lab')}`}></span>
         <span>Lab</span>
       </div>
       <div class="legend-item">
-        <span class="legend-dot legend-dot--radiologi"></span>
+        <span class={`legend-dot ${getColorTimeline('Radiologi')}`}></span>
         <span>Radiologi</span>
       </div>
     </div>
@@ -68,7 +69,7 @@
       </div>
     </div>
 
-    <!-- kanan: tombol filter -->
+    <!-- kanan: button filter -->
     <div class="timeline-base__zoom">
       {#each modes as mode}
         <button

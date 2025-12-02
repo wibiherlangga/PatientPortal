@@ -4,10 +4,6 @@ import { patientHistoryMock } from '$lib/timeline/mocks/patientHistory.mock.js';
 const USE_MOCK = import.meta.env.VITE_USE_MOCK === 'true';
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
-/**
- * Ambil semua riwayat pasien (ringkasan history per pasien).
- * Mengembalikan array history (per patient: patientId, name, history[]).
- */
 export async function fetchHistory({ start = 2024, end = 2026 } = {}) {
   if (USE_MOCK) {
     await delay(120);
@@ -25,9 +21,6 @@ export async function fetchHistory({ start = 2024, end = 2026 } = {}) {
   return await r.json();
 }
 
-/**
- * Ambil riwayat satu pasien (semua tahun & bulan)
- */
 export async function fetchHistoryByPatient(patientId) {
   if (USE_MOCK) {
     await delay(100);
