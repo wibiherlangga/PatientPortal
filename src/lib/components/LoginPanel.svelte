@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { goto } from '$app/navigation';
+
   export let open = false;
   export let onClose;
   let email = '';
@@ -49,6 +51,10 @@
 
   async function handleLogin(event: SubmitEvent) {
     event.preventDefault();
+
+
+    // tes pindah page
+    window.location.href = '/patient';
 
     loading = true;
 
