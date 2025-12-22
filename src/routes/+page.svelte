@@ -36,7 +36,6 @@
         <img src="search.svg" alt="search">
       </button>
     </div>
-
     
       <button class="cursor-pointer" on:click={openLoginForm}>
         <img src="options.png" alt="options" class="w-[30px] h-[30px] hover:opacity-80 transition">
@@ -72,7 +71,6 @@
         class="absolute z-[0] pointer-events-none max-w-sm object-contain object-top drop-shadow-2xl md:max-w-md md:-top-40"
         />
     </div>
-
   </div>
 
   <!-- Info Box -->
