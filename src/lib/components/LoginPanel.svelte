@@ -52,11 +52,9 @@
   async function handleLogin(event: SubmitEvent) {
     event.preventDefault();
 
-
+    loading = true;
     // tes pindah page
     window.location.href = '/patient';
-
-    loading = true;
 
     // simulasi fetch API
     try {
@@ -64,6 +62,7 @@
       // contoh respons sukses palsu
       if (email === 'testwibi@gmail.com' && password === 'testwibi') {
         success = 'Login berhasil 🎉';
+        goto('patient');
       } else {
         error = 'Email atau password salah.';
       }

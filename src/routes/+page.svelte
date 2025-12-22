@@ -36,7 +36,6 @@
         <img src="search.svg" alt="search">
       </button>
     </div>
-
     
       <button class="cursor-pointer" on:click={openLoginForm}>
         <img src="options.png" alt="options" class="w-[30px] h-[30px] hover:opacity-80 transition">
@@ -54,14 +53,13 @@
         Your Partner in Health and Wellness
       </h1>
 
-      <p class="font-arapey font-normal text-[20px] text-black max-w-md">
-        We are committed to providing you with the best medical and 
-        healthcare services to help you live healthier and happier.
+      <p class="font-arapey font-normal text-[20px] text-black w-full">
+        We are committed to providing you with the best medical and healthcare services to help you live healthier and happier.
       </p>
 
       <div class="flex gap-[10px] items-center">
         <img src="play-media.png" alt="play-media" class="h-[40px] w-[40px]">
-        <p class="text-[#214169] font-normal text-[20px]">See how we work</p>
+        <p class="text-[#214169] font-bold font-abhaya-libre text-[20px]">See how we work</p>
       </div>
     </div>
 
@@ -73,7 +71,6 @@
         class="absolute z-[0] pointer-events-none max-w-sm object-contain object-top drop-shadow-2xl md:max-w-md md:-top-40"
         />
     </div>
-
   </div>
 
   <!-- Info Box -->
